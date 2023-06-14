@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "author": "Gustavo Bertoi <gustavobertoi@outlook.com>",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "create:customer": "ts-node seeds/create-customer.ts",
+    "create:establishment": "ts-node seeds/create-establishment.ts",
+    "create:period": "ts-node seeds/create-period.ts",
+    "create:typeOfService": "ts-node seeds/create-type-of-service.ts",
+    "create:facts": "ts-node seeds/create-fact.ts"
+  },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/node": "^20.1.0",
     "prisma": "^4.13.0",
     "ts-node": "^10.9.1",

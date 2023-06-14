@@ -11,36 +11,43 @@ datasource db {
 }
 
 model DimensionTypeOfService {
-  id                 Int                  @id @default(autoincrement())
-  ref_id             String               @unique @db.Char(36)
+  id     Int    @id @default(autoincrement())
+  ref_id String @unique @db.Char(36)
+  name   String
+
   FactServiceRequest FactServiceRequest[]
 
   @@map("dw_dimension_type_of_services")
 }
 
 model DimensionCustomer {
-  id                 Int                  @id @default(autoincrement())
-  ref_id             String               @unique @db.Char(36)
-  FactServiceRequest FactServiceRequest[]
+  id     Int    @id @default(autoincrement())
+  ref_id String @unique @db.Char(36)
+  name   String
+
+  factServiceRequest FactServiceRequest[]
 
   @@map("dw_dimension_customers")
 }
 
 model DimensionEstablishment {
-  id                 Int                  @id @default(autoincrement())
-  ref_id             String               @unique @db.Char(36)
-  FactServiceRequest FactServiceRequest[]
+  id     Int    @id @default(autoincrement())
+  ref_id String @unique @db.Char(36)
+  name   String
+
+  factServiceRequest FactServiceRequest[]
 
   @@map("dw_dimension_establishments")
 }
 
 model DimensionPeriod {
-  id                 Int                  @id @default(autoincrement())
-  exact_date         DateTime
-  month              String               @db.Char(2)
-  year               String               @db.Char(4)
-  holiday            Boolean
-  FactServiceRequest FactServiceRequest[]
+  id         Int      @id @default(autoincrement())
+  exact_date DateTime
+  month      String   @db.Char(2)
+  year       String   @db.Char(4)
+  holiday    Boolean
+
+  factServiceRequest FactServiceRequest[]
 
   @@map("dw_dimension_periods")
 }
